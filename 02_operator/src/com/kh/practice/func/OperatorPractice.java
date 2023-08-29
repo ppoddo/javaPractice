@@ -188,8 +188,10 @@ public class OperatorPractice {
 		double ami = am + (am*0.4);
 		double bmi = bm + (bm*0);
 		double cmi = cm + (cm*0.15);		// 0.15의 실제 값과 1.15의 실제값이 조금 다르기 때문에 오차 발생가능.
-											//
-		
+											// 부동소수점  float 실수 = 부호bit 1bit 지수부 7bit 가수부 23bit
+											// 고정소수점 
+
+			  
 		String resulta = ami >= 3000 ? "3000이상" : "3000미만" ;
 		String resultb = bmi >= 3000 ? "3000이상" : "3000미만" ;
 		String resultc = cmi >= 3000 ? "3000이상" : "3000미만" ;
@@ -236,9 +238,10 @@ public class OperatorPractice {
 		
 	public void method1() {
 		Scanner sc = new Scanner(System.in);
-		
 		System.out.print("문자열을 입력하세요 : ");
-		String str = sc.next();
+		
+		String str = sc.nextLine();
+
 		
 								//i < n 를 만족하는 i와 n번째를 조절하는법 공부하기
 								//배열의 범위 조정하기

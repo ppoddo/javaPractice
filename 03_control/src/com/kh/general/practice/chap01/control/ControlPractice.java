@@ -35,6 +35,89 @@ public class ControlPractice {
 				System.out.println("잘못입력하셨습니다. 다시 입력해주세요 : ");
 			}
 		}
+	}
+	
+	public void practice2() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("정수를 입력하세요 : ");
+		int num = sc.nextInt();
+		
+		if(num > 0) {
+			if(num%2 == 0) {
+				System.out.println("짝수다");
+			} else {
+				System.out.println("홀수다");
+			}
+		} else {
+			System.out.println("양수만 입력해주세요.");
+		}
+	}
+	
+	public void practice3() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("국어 점수 : ");
+		int kNum = sc.nextInt();
+		System.out.print("수학 점수 : ");
+		int mNum = sc.nextInt();
+		System.out.print("영어 점수 : ");
+		int eNum = sc.nextInt();
+		
+		int sum = kNum + mNum + eNum;
+		double av = (kNum + mNum + eNum)/3;
+		
+		if(kNum >= 40 && mNum >= 40 && eNum >= 40 && av >= 60) {
+			System.out.println("국어 점수 : " + kNum);
+			System.out.println("수학 점수 : " + mNum);
+			System.out.println("영어 점수 : " + eNum);
+			System.out.println("합계 : " + sum);
+			System.out.println("평균 : " + av);
+			System.out.println("축하합니다. 합격입니다!");
+		} else {
+			System.out.println("불합격입니다.");
+		}
+	}
+	
+	public void practice4() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("1~12 사이의 정수 입력 : ");
+		int num = sc.nextInt();
+		
+		switch(num) {
+		case 12, 1, 2 :
+			System.out.print(num + "월은 겨울입니다");
+			break;
+		case 3, 4, 5 :
+			System.out.print(num + "월은 봄입니다");
+			break;
+		case 6, 7, 8 :
+			System.out.print(num + "월은 여름입니다");
+			break;
+		case 9, 10, 11 :
+			System.out.print(num + "월은 가을입니다");
+			break;
+		default :
+			System.out.print(num + "월은 잘못 입력된 달입니다.");
+		}
+	}
+	
+	public void practice5() {		//문제고쳐야함
+		Scanner sc = new Scanner(System.in);
+		System.out.print("아이디를 입력하세요 : ");
+		String id = sc.nextLine();
+		System.out.print("비밀번호를 입력하세요 : ");
+		String psw = sc.nextLine();
+		
+		String myId = "hwajin";
+		String myPsw = "hwajin123";
+		
+		if(id == myId && psw == myPsw) {
+			System.out.print("로그인 성공");
+		} else if(id == myId) {
+			System.out.print("비밀번호가 틀렸습니다.");
+		} else {
+			System.out.print("아이디가 틀렸습니다.");
+		}
+		
 		
 		
 	}

@@ -18,7 +18,7 @@ public class Run {
 //		op1.practice9();
 //		op1.practice10();
 //		op1.practice11();
-//		op1.method1();
+		op1.method1();
 		
 	}
 

@@ -26,7 +26,6 @@ public class C_Cast {
 		
 		double dNum = 10.00000001;
 		short sNum = (short)dNum;
-		
 
 	}	
 	
