@@ -100,22 +100,22 @@ public class ControlPractice {
 		}
 	}
 	
-	public void practice5() {		//문제고쳐야함
+	public void practice5() {	문자열은 .equals 를 사용
 		Scanner sc = new Scanner(System.in);
 		System.out.print("아이디를 입력하세요 : ");
 		String id = sc.nextLine();
 		System.out.print("비밀번호를 입력하세요 : ");
 		String psw = sc.nextLine();
 		
-		String myId = "hwajin";
-		String myPsw = "hwajin123";
+		String myId = "myname";
+		String myPsw = "mypassword";
 		
-		if(id == myId && psw == myPsw) {
+		if(id.equals(myId) && psw.equals(myPsw)) {
 			System.out.print("로그인 성공");
-		} else if(id == myId) {
-			System.out.print("비밀번호가 틀렸습니다.");
-		} else {
+		} else if(!id.equals(myId)) {
 			System.out.print("아이디가 틀렸습니다.");
+		} else {
+			System.out.print("비밀번호가 틀렸습니다.");
 		}
 		
 		
