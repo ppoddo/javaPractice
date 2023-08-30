@@ -100,19 +100,19 @@ public class ControlPractice {
 		}
 	}
 	
-	public void practice5() {	문자열은 .equals 를 사용
+	public void practice5() {		//문자열은 equals 사용
 		Scanner sc = new Scanner(System.in);
 		System.out.print("아이디를 입력하세요 : ");
 		String id = sc.nextLine();
 		System.out.print("비밀번호를 입력하세요 : ");
 		String psw = sc.nextLine();
 		
-		String myId = "myname";
-		String myPsw = "mypassword";
+		String myId = "hwajin";
+		String myPsw = "hwajin123";
 		
 		if(id.equals(myId) && psw.equals(myPsw)) {
 			System.out.print("로그인 성공");
-		} else if(!id.equals(myId)) {
+		} else if(!id.equals( myId)) {
 			System.out.print("아이디가 틀렸습니다.");
 		} else {
 			System.out.print("비밀번호가 틀렸습니다.");
@@ -151,6 +151,64 @@ public class ControlPractice {
 		}
 	}
 	
+	public void practice7() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("키(m) : ");
+		double m = sc.nextDouble();
+		System.out.print("몸무게(kg) : ");
+		double k = sc.nextDouble();
+		
+		double BMI = (k / (m*m));		//BMI 측정
+		
+		if(BMI < 18.5) {
+			System.out.println(BMI);
+			System.out.println("저체중 입니다.");
+		} else if(BMI < 23) {
+			System.out.println(BMI);
+			System.out.println("정상체중 입니다");
+		} else if(BMI < 25) {
+			System.out.println(BMI);
+			System.out.println("과체중 입니다");
+		} else {
+			System.out.println(BMI);
+			System.out.println("고도비만 입니다");
+		}
+	}
+	
+	public void practice8() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("정수 1 : ");
+		int num1 = sc.nextInt();
+		System.out.print("정수 2 : ");
+		int num2 = sc.nextInt();
+		System.out.println("연산기호(+, -, *, /, %) : ");
+		String op = sc.next();
+		
+		if( num1 > 0 && num2 >0) {
+			switch(op) {
+			case "+" :
+				System.out.println(num1 + " + " + num2 + " = " + (num1 + num2));
+				break;
+			case "-" :
+				System.out.println(num1 + " - " + num2 + " = " + (num1 - num2));
+				break;
+			case "*" :
+				System.out.println(num1 + " * " + num2 + " = " + (num1 * num2));
+				break;
+			case "/" :
+				System.out.println(num1 + " / " + num2 + " = " + (num1 / num2));
+				break;
+			case "%" :
+				System.out.println(num1 + " % " + num2 + " = " + (num1 % num2));
+				break;
+			default :
+				System.out.println("잘못입력하셨습니다. 프로그램을 종료합니다.");
+			}
+		} else {
+			System.out.print("잘못입력하셨습니다. 프로그램을 종료합니다.");
+		}
+	}
+	
 	public void practice9() {
 		Scanner sc = new Scanner(System.in);
 		
@@ -184,6 +242,64 @@ public class ControlPractice {
 			} else {
 			System.out.println("Fail [점수 미달]");
 			}
+		}
+	}
+	
+	public void practice10() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("======메뉴화면입니다======");
+		System.out.println("1. 메뉴 출력 ");
+		System.out.println("2. 짝수/홀수 ");
+		System.out.println("3. 합격/불합격 ");
+		System.out.println("4. 계절 ");
+		System.out.println("5. 로그인 ");
+		System.out.println("6. 권한 확인 ");
+		System.out.println("7. BMI ");
+		System.out.println("8. 계산기 ");
+		System.out.println("9. P/F ");
+				
+		System.out.println("호출하실 메소드 번호를 눌러주세요 : ");
+		int bell = sc.nextInt();
+		
+		switch(bell) {
+		case 1 :
+			System.out.println("1. 메뉴 출력 : ");
+			practice1();
+			break;
+		case 2 :
+			System.out.println("2. 짝수/홀수 : ");
+			practice2();
+			break;
+		case 3 :
+			System.out.println("3. 합격/불합격 : ");
+			practice3();
+			break;
+		case 4 :
+			System.out.println("4. 계절 : ");
+			practice4();
+			break;
+		case 5 :
+			System.out.println("5. 로그인 : ");
+			practice5();
+			break;
+		case 6 :
+			System.out.println("6. 권한 확인 : ");
+			practice6();
+			break;
+		case 7 :
+			System.out.println("7.  BMI : ");
+			practice7();
+			break;
+		case 8 :
+			System.out.println("8. 계산기 : ");
+			practice8();
+			break;
+		case 9 :
+			System.out.println("9. P/F : ");
+			practice9();
+			break;
+		default :
+			System.out.println("잘못입력하셨습니다.");
 		}
 	}
 }
