@@ -16,12 +16,10 @@ public class Snack {
 		this.flavor = flavor;
 		this.numOf = numOf;
 		this.price = price;
-
 	}
 	
-	
-	public String information() {		//고쳐야함
-		return "스낵류를 입력하세요.";
+	public String information() {		// 정보 창 불러오는 형식 틀
+		return kind + "(" + name + " - " + flavor + ") " + numOf + "개 " + price + "원";
 		
 	}
 							// getter 호출   setter 설정

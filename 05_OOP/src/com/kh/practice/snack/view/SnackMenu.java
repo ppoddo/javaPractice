@@ -26,7 +26,7 @@ public class SnackMenu {
 		
 		System.out.print("가격 : ");
 		int price = sc.nextInt();
-		sc.nextLine();
+		sc.nextLine();		//버퍼에 개행문자 처리용;;
 		System.out.println(scr.saveData(kind, name, flavor, numOf, price));
 		
 		

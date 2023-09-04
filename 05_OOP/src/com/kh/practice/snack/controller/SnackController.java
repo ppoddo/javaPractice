@@ -25,6 +25,6 @@ public class SnackController {
 		int numOf = s.getNumOf();
 		double price = s.getPrice();
 		 
-		return  kind + "(" + name + " - " + flavor + ") " + numOf + "개 " + price + "원";
+		return s.information();
 	}
 }
