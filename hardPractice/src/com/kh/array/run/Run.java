@@ -8,7 +8,8 @@ public class Run {
 //		ay.practice12();
 //		ay.practice13();
 //		ay.practice14();
-		ay.practice15();
+//		ay.practice15();
+		ay.practice15_2();
 	}
 
 }

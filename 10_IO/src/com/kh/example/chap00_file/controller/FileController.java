@@ -31,15 +31,6 @@ public class FileController {
 			System.out.println(f1.length()); // 그 파일의 크기
 			System.out.println(f4.getParent()); // 내 상위 폴더 호출
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

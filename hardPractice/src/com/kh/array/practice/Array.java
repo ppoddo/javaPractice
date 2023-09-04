@@ -1,5 +1,6 @@
 package com.kh.array.practice;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Array {
@@ -108,19 +109,59 @@ public class Array {
 			} while(equals);
 			
 			arr[i] = random;
+		}
+		
+		Arrays.sort(arr);	// 인자에 들어가 있는 배열을 오름차순으로 변경
+		
+		System.out.print("로또 번호 :");
+		for (int i = 0; i <arr.length; i++) {
 			System.out.print(arr[i] + " ");
-
-
 		}
 	}
 	
+	public void swap(int a, int b) {
 	
+	}
 	
-	
-	
-	
-	
-	
-	
+	public void practice15_2() {
+		int a = 0;
+		int b = 0;
+		swap (a, b);
+		int lotto = 0;
+		
+		int[] arr = new int[6];
+		
+		for(int i = 0; i < arr.length; i++) {
+			int random;
+			boolean equals;	// 일단 냅둬
+				//중복이 안될때까지
+			do {
+				 random = (int)(Math.random()*45+1);
+				 equals = false; // 같아지지 않을때까지 반복해라
+					
+				for(int j = 0; j < i; j++)	{
+					if(arr[j] == random) {
+						equals = true;
+						break;
+					}
+				}
+			} while(equals);
+			 arr[i] = random;
+		}
+	    int tmp;
+	    for(int i = 0; i < arr.length; i++){
+	        for(int j = 0; j < arr.length -1 -i; j++){
+	            swap(arr[j], arr[j+1]);
+	            if(arr[j] > arr[j+1]){
+	                tmp = arr[j];
+	                arr[j] = arr[j+1];
+	                arr[j+1] = tmp;
+	            }
+	        }
+	    }
+		for(int i = 0; i < arr.length; i++) {
+		System.out.print(arr[i] + " ");
+		}
+	}
 	
 }
