@@ -148,7 +148,7 @@ public class Array {
 			} while(equals);
 			 arr[i] = random;
 		}
-	    int tmp;
+	    int tmp;	//배열을 오름차순으로 바꾸면서 정렬해주기
 	    for(int i = 0; i < arr.length; i++){
 	        for(int j = 0; j < arr.length -1 -i; j++){
 	            swap(arr[j], arr[j+1]);
@@ -164,4 +164,35 @@ public class Array {
 		}
 	}
 	
+	public void practice16() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("문자열을 입력하세요 : ");
+		String str = sc.nextLine();		// 무작위로 입력된 문자열 받기
+		
+		str = str.replaceAll("\\s + ", " ");
+				// 모든 ASCII 문자에 대한 배열 생성
+		int[] charCount = new int[256];	//문자열의 길이만큼 배열 생성
+		
+		for(int i = 0; i < str.length(); i++) {
+			char currentChar = str.charAt(i);
+			charCount[currentChar]++;
+		}
+		System.out.println("문자열 : " + str);
+		System.out.println("문자열에 있는 문자 : ");
+		for(int i = 0; i < charCount.length; i++) {
+			if(charCount[i] > 0) {
+				char currentChar = (char)i;
+				System.out.print(currentChar + ", ");
+			}
+		}
+		
+		System.out.println();
+		int uniCount = 0;
+		for (int i = 0; i < charCount.length; i++) {
+			if(charCount[i] > 0) {
+				uniCount++;
+			}
+		}
+		System.out.println("문자 개수 : " + uniCount);
+	}
 }

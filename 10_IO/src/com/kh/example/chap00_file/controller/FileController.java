@@ -30,7 +30,7 @@ public class FileController {
 			// 상대경로 : 현재 작업 디렉토리를 기준으로 경로를 지정하는것..찾아가는방법 ㅇㅇ
 			System.out.println(f1.length()); // 그 파일의 크기
 			System.out.println(f4.getParent()); // 내 상위 폴더 호출
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
