@@ -2,8 +2,8 @@ package com.kh.practice.map.controller;
 
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.TreeMap;
 
 import com.kh.practice.map.model.vo.Member;
@@ -26,6 +26,7 @@ public class MemberController {
 			if(mb.getPassword().equals(password)) {
 				return mb.getName();
 			}
+			return null;
 		}
 		return null;
 	}
@@ -37,6 +38,7 @@ public class MemberController {
 	            mb.setPassword(newPw);
 	            return true;
 	        }
+	        return false;
 	    }
 	    return false;
 	}
@@ -67,5 +69,19 @@ public class MemberController {
 	        }
 	    }
         return result;  //반복문을 통해 완성된 TreeMap 객체를 반환
+	}
+	
+	public TreeMap<String, Member> sameName2(String name) {
+		TreeMap<String, Member> same = new TreeMap<String, Member>();
+		Set<String> set = map.keySet();
+		Iterator<String> it = set.iterator();
+		while(it.hasNext()) {
+			String id = it.next();
+			Member m =map.get(id);
+			if(m.getName().equals(name)) {
+				same.put(id, m);
+			}
+		}
+		return same;
 	}
 }

@@ -1,7 +1,10 @@
 package com.kh.practice.map.view;
 
-import java.lang.invoke.StringConcatFactory;
+import java.util.Iterator;
+import java.util.Map.Entry;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeMap;
 
 import com.kh.practice.map.controller.MemberController;
 import com.kh.practice.map.model.vo.Member;
@@ -72,7 +75,6 @@ public class MemberMenu {
 		while(true) {
 			System.out.println("\n회원가입 페이지입니다.");
 			System.out.print("사용하실 아이디를 입력해주세요. : ");
-			sc.nextLine();
 			String newId = sc.nextLine();
 			System.out.print("사용하실 비밀번호를 입력해주세요. : ");
 			String newPw = sc.nextLine();
@@ -84,10 +86,10 @@ public class MemberMenu {
 			
 			if(mc.joinMembership(newId, nM)) {
 				System.out.println("성공적으로 회원가입 완료하였습니다.\n");
+				break;
 			} else {
 				System.out.println("중복된 아이디입니다. 다시 입력해주세요.");
 			}
-			return;
 		}
 	}
 	
@@ -95,23 +97,21 @@ public class MemberMenu {
 		while(true) {
 			System.out.println("로그인 메뉴입니다.");
 			System.out.print("아이디를 입력해주세요. : ");
-			sc.nextLine();
 			String inputId = sc.nextLine();
 			System.out.print("비밀번호를 입력해주세요. : ");
 			String inputPw = sc.nextLine();
 			
 			String ssc = mc.logIn(inputId, inputPw);
 		
-			if(mc.logIn(inputId, inputPw).equals(ssc) ) {
+			if(ssc != null) {
 				System.out.println(ssc + "님, 환영합니다!\n");
 				return;
-			} else if(ssc.equals(null)){
+			} else {
 				System.out.println("틀린 아이디 또는 비밀번호입니다. 다시 입력해주세요.");
 			}
 			return;
 		}
 	}
-
 	
 	public void changePassword() {
 		while(true) {
@@ -125,10 +125,10 @@ public class MemberMenu {
 			
 			if(mc.changePassword(id, oldPw, newPw)) {
 				System.out.println("비밀번호 변경에 성공했습니다.\n");
+				return;
 			} else {
 				System.out.println("비밀번호 변경에 실패했습니다. 다시 입력해주세요.\n");
 			}
-			return;
 		}
 	}
 	
@@ -148,6 +148,7 @@ public class MemberMenu {
 				
 				mc.changeName(id, newName);
 				System.out.println("이름 변경에 성공하였습니다.\n");
+				break;
 			} else {
 				System.out.println("이름 변경에 실패했습니다. 다시 입력해주세요.\n");
 			}
@@ -155,22 +156,31 @@ public class MemberMenu {
 		}
 	}
 	
-	public void sameName() {
+	public void sameName() {	// map을 넣자
 		System.out.println("\n같은 이름 회원 찾기 메뉴입니다.");
 		System.out.print("검색할 이름을 입력하세요. : ");
 		sc.nextLine();
 		String nameSearch = sc.nextLine();
 		System.out.println(mc.sameName(nameSearch));
 		
-		//{111=123} 이게 뜸..
+		//트리의 객체 값을 각각 뽑아야하는데..
 		
-		
-		
-		
-		
-		
-		
-		
+		// 아래는 강사님 답안
+		// 반환되기 전 TreeMap은 HashMap에서 TreeMap의 값을 찾아서 보내주기 위함이고
+		// 여기서 반환받은 값을 TreeMap 안에서 찾기 위해 한번더 반복문을 돌려서 찾는거다.
 	}
-
+	
+	public void sameName2() {
+		System.out.println("\n같은 이름 회원 찾기 메뉴입니다.");
+		System.out.print("검색할 이름을 입력하세요. : ");
+		String searchName = sc.nextLine();
+		
+		TreeMap<String, Member> map = mc.sameName2(searchName);
+		Set<Entry<String, Member>> set = map.entrySet();
+		Iterator<Entry<String, Member>> it = set.iterator();
+		while(it.hasNext()) {
+			Entry<String, Member> e = it.next();
+			System.out.println(e.getValue().getName() + "-" + e.getKey());
+		}
+	}
 }
